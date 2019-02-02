@@ -100,21 +100,28 @@ namespace Caprica
                 if(UnityEngine.Random.Range(0f, 1f) <= planetChance)
                 {
                     // Make a planet!
-                    Planet planet = new Planet();
-                    planets[i] = planet;
-                    planet.Name = GeneratePlanetName(i);
-
-                    int size_max = (int)PlanetSize.COUNT;
-
-                    planet.PlanetSize = (PlanetSize)Enum.GetValues(typeof(PlanetSize)).GetValue(UnityEngine.Random.Range(0, size_max));
+                    planets[i] = GeneratePlanet(i + 1); // 'i' is the array index, therefore, add 1 to get position.
                 }
             }
         }
 
-        string GeneratePlanetName(int pos)
+        Planet GeneratePlanet(int planetPosition)
         {
+            Planet planet = new Planet();
+
             // TODO: Make awesome
-            return Name + " " + (pos + 1).ToString();
+            planet.Name = Name + " " + planetPosition.ToString();
+
+            // To select a random planet size, first organize the planet sizes into an array.
+            Array planetSizeArray = Enum.GetValues(typeof(PlanetSize));
+
+            // Next, generate a random array index.
+            int planetSizeIndex = UnityEngine.Random.Range(0, planetSizeArray.Length);
+
+            // Finally, set the planet size using the random index into the array.
+            planet.PlanetSize = (PlanetSize) planetSizeArray.GetValue(planetSizeIndex);
+
+            return planet;
         }
 
         PlanetType GeneratePlanetType(int pos)
