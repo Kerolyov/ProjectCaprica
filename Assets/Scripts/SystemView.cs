@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Caprica;
+using TMPro;
 
 public class SystemView : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class SystemView : MonoBehaviour {
         Debug.Log("SystemView::OnEnable -- " + starSystem.name);
 
         // Update various UI elements for this system
+        viewTitle.text = starSystem.name;
 
         // Setup the system render view so we can see planets
         SpawnRenderables();
@@ -26,6 +28,8 @@ public class SystemView : MonoBehaviour {
             Debug.Log(child.gameObject.ToString()+" destroyed");
         }
     }
+
+    [SerializeField] private TextMeshProUGUI viewTitle = null;
 
     public StarSystem starSystem;
 

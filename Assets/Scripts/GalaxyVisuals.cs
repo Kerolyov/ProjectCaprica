@@ -11,8 +11,6 @@ public class GalaxyVisuals : MonoBehaviour {
 
     public void InitiateVisuals( Galaxy galaxy )
     {
-//        this.galaxy = galaxy;
-
         for (int i = 0; i < galaxy.GetNumStarSystems(); i++)
         {
             StarSystem starSystem = galaxy.GetStarSystem(i);
