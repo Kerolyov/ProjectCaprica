@@ -20,11 +20,11 @@ public class SystemView : MonoBehaviour {
     private void OnDisable()
     {
         // Become Darth Vader, kill all the younglings
-        while (StarSystem3DContainer.transform.childCount > 0)
+        foreach (Transform child in StarSystem3DContainer.transform)
         {
-            Transform t = StarSystem3DContainer.transform.GetChild(0);
-            t.SetParent(null);
-            Destroy(t.gameObject);
+            Debug.Log("Destroying System View Object" + child.gameObject.ToString());
+            Destroy(child.gameObject);
+            Debug.Log(child.gameObject.ToString()+" destroyed");
         }
     }
 
