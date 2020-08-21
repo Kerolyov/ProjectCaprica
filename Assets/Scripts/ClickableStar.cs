@@ -11,7 +11,7 @@ public class ClickableStar : MonoBehaviour {
         GetComponentInChildren<TextMeshProUGUI>().text = StarSystem.Name;
     }
 
-    public StarSystem StarSystem;
+    public StarSystem StarSystem;  // Set by GalaxyVisuals
 
     public void OnClick()
     {

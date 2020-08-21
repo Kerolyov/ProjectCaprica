@@ -45,7 +45,7 @@ public class GalaxyVisuals : MonoBehaviour {
 
 	}
 
-    public GameObject[] StarPrefabs;    // Index of array is a star type. The prefabs are 
+    public ClickableStar[] StarPrefabs;    // Index of array is a star type. The prefabs are 
                                         // responsible for having appearance variety.
 
     Galaxy galaxy;
@@ -56,16 +56,17 @@ public class GalaxyVisuals : MonoBehaviour {
 
         for (int i = 0; i < galaxy.GetNumStarSystems(); i++)
         {
-            StarSystem ss = galaxy.GetStarSystem(i);
+            StarSystem starSystem = galaxy.GetStarSystem(i);
 
-            GameObject go = Instantiate(
-                StarPrefabs[ss.GetStarTypeIndex()],
-                ss.Position,       // Are we gonna want to mult by a scalar?
+            ClickableStar clickableStar = Instantiate(
+                StarPrefabs[starSystem.GetStarTypeIndex()],
+                starSystem.Position,       // Are we gonna want to mult by a scalar?
                 Quaternion.identity,
                 this.transform
                 );
 
-            go.GetComponent<ClickableStar>().StarSystem = ss;
+            clickableStar.StarSystem = starSystem;
+            clickableStar.name = starSystem.Name;
 
 
         }
