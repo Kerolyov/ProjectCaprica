@@ -21,19 +21,19 @@ namespace Caprica
     {
         public Galaxy()
         {
-            StarSystems = new List<StarSystem>();
+            starSystems = new List<StarSystem>();
         }
 
-        private List<StarSystem> StarSystems;
+        private List<StarSystem> starSystems;
 
         public StarSystem GetStarSystem(int StarSystemId)
         {
-            return StarSystems[StarSystemId];
+            return starSystems[StarSystemId];
         }
 
         public int GetNumStarSystems()
         {
-            return StarSystems.Count;
+            return starSystems.Count;
         }
 
         public void Generate(  )
@@ -45,7 +45,7 @@ namespace Caprica
             for (int i = 0; i < GalaxyConfig.NumStars; i++)
             {
                 StarSystem ss = new StarSystem();
-                ss.Position = new Vector3(
+                ss.position = new Vector3(
                         Random.Range(-galaxyWidth / 2, galaxyWidth / 2),
                         Random.Range(-galaxyWidth / 2, galaxyWidth / 2),
                         0
@@ -54,12 +54,12 @@ namespace Caprica
                 // Player starting stars are special
                 // Do we want to vary star types based on distance from galactic center?
 
-                ss.Name = "Star " + i.ToString();
+                ss.name = "Star " + i.ToString();
 
-                StarSystems.Add(ss);
+                starSystems.Add(ss);
             }
 
-            Debug.Log("Num Stars Generated: " + StarSystems.Count);
+            Debug.Log("Num Stars Generated: " + starSystems.Count);
         }
 
         public void Load( /* Some kind of file handle? */ )

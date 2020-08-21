@@ -19,18 +19,18 @@ namespace Caprica
 
         }
 
-        public Vector3 Position;
+        public Vector3 position;
 
         private Planet[] planets;
 
 
         const int MIN_STAR_TYPE = -2;    // Not pleased with this
         const int MAX_STAR_TYPE =  2;
-        public int StarType { get; private set; }  // 0 = Yellow, positive = older, less rich, negative = younger, less hab
+        public int starType { get; private set; }  // 0 = Yellow, positive = older, less rich, negative = younger, less hab
 
         public StarSystemGraphic StarSystemGraphic;
 
-        public string Name;
+        public string name;
 
         public Planet GetPlanet(int PlanetIndex)
         {
@@ -39,7 +39,7 @@ namespace Caprica
 
         public void Generate( int starType = 0 /* Galactic age/richness info? Or maybe we get told what kind of star to generate?  Especially for player starting planets? */ )
         {
-            this.StarType = starType;
+            this.starType = starType;
 
             GeneratePlanets();
         }
@@ -82,7 +82,7 @@ namespace Caprica
         {
             // Weird hacky function to convert from -2...+2 range to a 0...4 range
 
-            return StarType - MIN_STAR_TYPE;
+            return starType - MIN_STAR_TYPE;
         }
 
         private void GeneratePlanets()
@@ -110,7 +110,7 @@ namespace Caprica
             Planet planet = new Planet();
 
             // TODO: Make awesome
-            planet.Name = Name + " " + planetPosition.ToString();
+            planet.Name = name + " " + planetPosition.ToString();
 
             // To select a random planet size, first organize the planet sizes into an array.
             Array planetSizeArray = Enum.GetValues(typeof(PlanetSize));

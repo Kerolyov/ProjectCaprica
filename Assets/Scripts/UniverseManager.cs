@@ -11,7 +11,8 @@ public class UniverseManager : MonoBehaviour {
     // Maybe also gets callbacks from end turn button?
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         Generate();
     }
 
@@ -28,10 +29,10 @@ public class UniverseManager : MonoBehaviour {
     {
         Debug.Log("UniverseManager::Generate -- Generating a new Galaxy");
 
-        galaxy = new Galaxy();
+        Galaxy galaxy = new Galaxy();
         galaxy.Generate();
 
         // Tell our visual system to spawn the graphics
-        ViewManager.Instance.GalaxyVisuals.InitiateVisuals(galaxy);
+        ViewManager.Instance.galaxyVisuals.InitiateVisuals(galaxy);
     }
 }

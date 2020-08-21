@@ -8,15 +8,14 @@ public class ClickableStar : MonoBehaviour {
 
     private void Start()
     {
-        GetComponentInChildren<TextMeshProUGUI>().text = StarSystem.Name;
+        GetComponentInChildren<TextMeshProUGUI>().text = starSystem.name;
     }
 
-    public StarSystem StarSystem;  // Set by GalaxyVisuals
+    public StarSystem starSystem { get;  set; }  // Set by GalaxyVisuals
 
     public void OnClick()
     {
-        Debug.Log("ClickableStar::OnClick -- " + StarSystem.Name);
-        ViewManager.Instance.SystemView.StarSystem = StarSystem;
-        ViewManager.Instance.ShowView( ViewManager.Instance.SystemView );
+        Debug.Log("ClickableStar::OnClick -- " + starSystem.name);
+        ViewManager.Instance.OpenSystemView(starSystem);
     }
 }

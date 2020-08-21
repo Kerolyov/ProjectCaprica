@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Caprica;
 
 public class ViewManager : MonoBehaviour {
 
@@ -11,11 +12,18 @@ public class ViewManager : MonoBehaviour {
 
     public static ViewManager Instance { get; set; }
 
-    public GalaxyVisuals GalaxyVisuals;
-    public SystemView SystemView;
+    public GalaxyVisuals galaxyVisuals;
+    public SystemView systemView; 
+
+    public void OpenSystemView(StarSystem starSystem)
+    {
+        systemView.starSystem = starSystem;
+        ShowView(systemView);
+    }
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
 		
         if( Input.GetKeyUp(KeyCode.Escape) )
         {

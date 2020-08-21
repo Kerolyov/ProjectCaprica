@@ -7,17 +7,15 @@ namespace Caprica
     public class Colony
     {
 
-
-
-        public Planet Planet;
+        public Planet planet;
 
         int population { get { return popFarmers + popWorkers + popScientists; } }
-        int popFarmers;
-        int popWorkers;
-        int popScientists;
+        int popFarmers = 0;
+        int popWorkers = 0;
+        int popScientists = 0;
 
-        int flatProduction; // Normally zero, unless you get automated factories
-        int productionPerWorker; // PlanetRichness/2 + 1
+        int flatProduction = 0; // Normally zero, unless you get automated factories
+        int productionPerWorker = 0; // PlanetRichness/2 + 1
 
         //List<Building> BuiltBuildings;
         List<int> BuiltBuildingIndexes;
@@ -36,7 +34,7 @@ namespace Caprica
 
         public int MaxPopulation()
         {
-            int p = Config.GetInt("PLANET_MAX_POPULATION_" + Planet.PlanetSize.ToString());
+            int p = Config.GetInt("PLANET_MAX_POPULATION_" + planet.PlanetSize.ToString());
 
             // Is our species Subterreranian, or have some other bonus to pop cap?
             //    Could be from a tech too, for example MoO2's "City"

@@ -408,8 +408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c3b465a36f6c44f87425afac34e9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GalaxyVisuals: {fileID: 1816245925}
-  SystemView: {fileID: 1090230495}
+  galaxyVisuals: {fileID: 1816245925}
+  systemView: {fileID: 1090230495}
 --- !u!1 &177866730
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 208556857}
   - component: {fileID: 208556859}
   m_Layer: 0
-  m_Name: ScreenBlocker
+  m_Name: ScreenBlocker Invisible Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2050,7 +2050,7 @@ GameObject:
   - component: {fileID: 1090230492}
   - component: {fileID: 1090230495}
   m_Layer: 0
-  m_Name: SystemView
+  m_Name: SystemView Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2151,9 +2151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7a25f48baba8949aadfb49d61d7cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StarSystem3DContainer: {fileID: 1923047149}
-  StarPrefab: {fileID: 1032121768572546, guid: 4f28e464027721b458659a2aa9d0df63, type: 3}
-  PlanetPrefab: {fileID: 1274019866487204, guid: 83cadccd1c29fc541beb995693020c10,
+  starSystem3DContainer: {fileID: 1923047149}
+  starPrefab: {fileID: 1032121768572546, guid: 4f28e464027721b458659a2aa9d0df63, type: 3}
+  planetPrefab: {fileID: 1274019866487204, guid: 83cadccd1c29fc541beb995693020c10,
     type: 3}
 --- !u!1 &1185956529
 GameObject:
@@ -3752,10 +3752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8276c89c89e55124190017c42aac9c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickableStarsLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  StarPrefabs:
+  starPrefabs:
   - {fileID: 114348054197559192, guid: 8068efd85c0429e4bbdbe593d6436a0f, type: 3}
   - {fileID: 114348054197559192, guid: 8068efd85c0429e4bbdbe593d6436a0f, type: 3}
   - {fileID: 114348054197559192, guid: 8068efd85c0429e4bbdbe593d6436a0f, type: 3}

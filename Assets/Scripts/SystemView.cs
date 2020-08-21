@@ -8,10 +8,9 @@ public class SystemView : MonoBehaviour {
 
     private void OnEnable()
     {
-        Debug.Log("SystemView::OnEnable -- " + StarSystem.Name);
+        Debug.Log("SystemView::OnEnable -- " + starSystem.name);
 
         // Update various UI elements for this system
-
 
         // Setup the system render view so we can see planets
         SpawnRenderables();
@@ -20,7 +19,7 @@ public class SystemView : MonoBehaviour {
     private void OnDisable()
     {
         // Become Darth Vader, kill all the younglings
-        foreach (Transform child in StarSystem3DContainer.transform)
+        foreach (Transform child in starSystem3DContainer.transform)
         {
             Debug.Log("Destroying System View Object" + child.gameObject.ToString());
             Destroy(child.gameObject);
@@ -28,15 +27,15 @@ public class SystemView : MonoBehaviour {
         }
     }
 
-    public StarSystem StarSystem;
+    public StarSystem starSystem;
 
-    public GameObject StarSystem3DContainer;
+    public GameObject starSystem3DContainer;
 
-    public GameObject StarPrefab;   // This is temporary, will have to be read in from some
+    public GameObject starPrefab;   // This is temporary, will have to be read in from some
                                     // kind of library that links star type to the many 
                                     // images that represent that star type
 
-    public GameObject PlanetPrefab; // Ditto.
+    public GameObject planetPrefab; // Ditto.
 
     // Update is called once per frame
     void Update () {
@@ -47,15 +46,15 @@ public class SystemView : MonoBehaviour {
         // Spawn our star
         GameObject go;
 
-        go = Instantiate(StarPrefab, StarSystem3DContainer.transform);
+        go = Instantiate(starPrefab, starSystem3DContainer.transform);
         go.transform.localPosition = Vector3.zero;
 
         // Spawn all the planets
         float orbitDistance = 0;
-        for (int i = 0; i < StarSystem.GetMaxPlanets(); i++)
+        for (int i = 0; i < starSystem.GetMaxPlanets(); i++)
         {
             orbitDistance += Config.GetFloat("STAR_ORBIT_DISTANCE");
-            Planet p = StarSystem.GetPlanetAtIndex(i);
+            Planet p = starSystem.GetPlanetAtIndex(i);
             if(p == null)
             {
                 continue;
@@ -63,7 +62,7 @@ public class SystemView : MonoBehaviour {
 
             // If we get here, we have a valid planet
 
-            go = Instantiate(PlanetPrefab, StarSystem3DContainer.transform);
+            go = Instantiate(planetPrefab, starSystem3DContainer.transform);
             go.transform.localPosition = 
                 Quaternion.Euler( 0, 0, Random.Range(0, 359)) * 
                 new Vector3(orbitDistance, 0, 0);
