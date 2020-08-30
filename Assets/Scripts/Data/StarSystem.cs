@@ -110,7 +110,7 @@ namespace Caprica
             Planet planet = new Planet();
 
             // TODO: Make awesome
-            planet.Name = name + " " + planetPosition.ToString();
+            planet.name = name + " " + planetPosition.ToString();
 
             // To select a random planet size, first organize the planet sizes into an array.
             Array planetSizeArray = Enum.GetValues(typeof(PlanetSize));
@@ -119,7 +119,7 @@ namespace Caprica
             int planetSizeIndex = UnityEngine.Random.Range(0, planetSizeArray.Length);
 
             // Finally, set the planet size using the random index into the array.
-            planet.PlanetSize = (PlanetSize) planetSizeArray.GetValue(planetSizeIndex);
+            planet.planetSize = (PlanetSize) planetSizeArray.GetValue(planetSizeIndex);
 
             return planet;
         }

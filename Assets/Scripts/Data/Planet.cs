@@ -20,20 +20,20 @@ namespace Caprica
 
     public class Planet
     {
-        public PlanetGraphic PlanetGraphic;
+        public PlanetGraphic planetGraphic;
 
-        public string Name;
+        public string name;
 
-        public readonly int PlanetIndex;
+        public readonly int planetIndex;
 
-        public PlanetType PlanetType;
+        public PlanetType planetType;
 
-        public PlanetSize PlanetSize;
+        public PlanetSize planetSize;
 
-        public PlanetRichness PlanetRichness;
+        public PlanetRichness planetRichness;
 
-        List<PlanetTrait> PlanetTraits;
+        List<PlanetTrait> planetTraits;
 
-        public Colony Colony;
+        public Colony colony;
     }
 }

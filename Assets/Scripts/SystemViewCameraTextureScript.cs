@@ -11,18 +11,18 @@ public class SystemViewCameraTextureScript : MonoBehaviour {
 
         RectTransform rt = GetComponent<RectTransform>();
 
-        SystemViewTexture = new RenderTexture( (int)rt.rect.width, (int)rt.rect.height, 24 );
-        SystemCamera.targetTexture = SystemViewTexture;
+        systemViewTexture = new RenderTexture( (int)rt.rect.width, (int)rt.rect.height, 24 );
+        SystemCamera.targetTexture = systemViewTexture;
 
         //Sprite sprite = Sprite.Create(  );
 
         RawImage ri = GetComponent<RawImage>();
 
-        ri.texture = SystemViewTexture;
+        ri.texture = systemViewTexture;
 
     }
 
-    RenderTexture SystemViewTexture;
+    RenderTexture systemViewTexture;
 
     public Camera SystemCamera;
 	

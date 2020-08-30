@@ -6,6 +6,7 @@ namespace Caprica
 {
     public class Colony
     {
+        public readonly int colonyIndex;
 
         public Planet planet;
 
@@ -18,8 +19,8 @@ namespace Caprica
         int productionPerWorker = 0; // PlanetRichness/2 + 1
 
         //List<Building> BuiltBuildings;
-        List<int> BuiltBuildingIndexes;
-        List<int> BuildingBuiltTurn;
+        List<int> builtBuildingIndexes;
+        List<int> buildingBuiltTurn;
 
         public int TotalProductionPerTurn()
         {
@@ -34,7 +35,7 @@ namespace Caprica
 
         public int MaxPopulation()
         {
-            int p = Config.GetInt("PLANET_MAX_POPULATION_" + planet.PlanetSize.ToString());
+            int p = Config.GetInt("PLANET_MAX_POPULATION_" + planet.planetSize.ToString());
 
             // Is our species Subterreranian, or have some other bonus to pop cap?
             //    Could be from a tech too, for example MoO2's "City"
@@ -44,6 +45,25 @@ namespace Caprica
             return p;
         }
 
+        void GetListofValidBuildings()
+        {
+            // Return array of all buildings that can be built on this planet.
 
+            // METHOD 1
+            // For each building in our master building list,
+            // look up if the player has unlocked the corresponding technologies
+
+            // METHOD 2
+            // Whenever a technology is unlocked that enables a building,
+            // then that building is added to the list of legal building for
+            // that player
+
+            // In either case filter out filter out buildings already built here
+        }
+
+        public void DoTurnProduction()
+        {
+
+        }
     }
 }

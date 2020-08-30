@@ -22,9 +22,39 @@ namespace Caprica
         public Galaxy()
         {
             starSystems = new List<StarSystem>();
+            players = new List<Player>();
         }
 
         private List<StarSystem> starSystems;
+        private List<Planet> planets;
+        private List<Colony> colonies;
+        private List<Player> players;
+
+        int currentPlayerIndex = 0;
+        int turnCounter = 0;
+
+        public Player GetPlayer(int playerIndex)
+        {
+            Player p = players[playerIndex];
+            if (p is null)
+            {
+                Debug.LogError("Null player with index"+playerIndex.ToString()+", & player count"+players.Count);
+            }
+            return p;
+        }
+
+        public Player GetCurrentPlayer()
+        {
+            return GetPlayer(currentPlayerIndex);
+        }
+
+        public void AdvanceCurrentPlayer()
+        {
+            currentPlayerIndex = (currentPlayerIndex + 1) % players.Count;
+            if (currentPlayerIndex == 0)
+                turnCounter++;
+        }
+
 
         public StarSystem GetStarSystem(int StarSystemId)
         {
@@ -36,7 +66,7 @@ namespace Caprica
             return starSystems.Count;
         }
 
-        public void Generate(  )
+        public void Generate()
         {
             // First pass, just make some random stars for us.
 
@@ -60,6 +90,17 @@ namespace Caprica
             }
 
             Debug.Log("Num Stars Generated: " + starSystems.Count);
+
+            for (int i = 0; i < GalaxyConfig.NumPlayers; i++)
+            {
+                Player p = null;
+                if (i == 0 || i == 4)
+                    p = new Player_Human(i);
+                else
+                    p = new Player_AI(i);
+
+                players.Add(p);
+            }
         }
 
         public void Load( /* Some kind of file handle? */ )
