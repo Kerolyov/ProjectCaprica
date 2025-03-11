@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 198671296}
   - component: {fileID: 198671298}
   - component: {fileID: 198671297}
+  - component: {fileID: 198671299}
   m_Layer: 0
   m_Name: Turn No. Text
   m_TagString: Untagged
@@ -444,7 +445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -160, y: 0}
+  m_AnchoredPosition: {x: -136, y: 0}
   m_SizeDelta: {x: 160, y: 48}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &198671297
@@ -473,7 +474,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -488,6 +489,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198671295}
   m_CullTransparentMesh: 0
+--- !u!114 &198671299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198671295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3182f61c1fea4af488dde2582f0ae743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  universeManager: {fileID: 953378719}
 --- !u!1 &208556855
 GameObject:
   m_ObjectHideFlags: 0

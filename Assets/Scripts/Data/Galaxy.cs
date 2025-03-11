@@ -31,7 +31,7 @@ namespace Caprica
         private List<Player> players;
 
         int currentPlayerIndex = 0;
-        int turnCounter = 0;
+        public int turnCounter { get; protected set; } = 0;
 
         public Player GetPlayer(int playerIndex)
         {
